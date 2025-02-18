@@ -1,0 +1,26 @@
+Value,Variable
+plotly-stubs,PackageNameDashed
+PlotlyStubs,PackageNameCapitalized
+ClaasRostock,GitHubOrganisation
+,SubPackage1Name
+,Module1Name
+,SubPackage2Name
+,Module2Name
+Claas Rostock,Author1Name
+claas.rostock@dnv.com,Author1Email
+https://www.linkedin.com/in/claasrostock/?locale=en_US,Author1LinkedIn
+,Author2Name
+,Author2Email
+,Author2LinkedIn
+,Author3Name
+,Author3Email
+,Author3LinkedIn
+Claas Rostock,Maintainer1Name
+claas.rostock@dnv.com,Maintainer1Email
+https://www.linkedin.com/in/claasrostock/?locale=en_US,Maintainer1LinkedIn
+,Maintainer2Name
+,Maintainer2Email
+,Maintainer2LinkedIn
+plotly,Keyword1
+stubs,Keyword2
+types,Keyword3

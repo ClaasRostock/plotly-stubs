@@ -1,0 +1,21 @@
+title: plotly-stubs
+version: 0.0.1
+abstract: >-
+    Type stubs for plotly.
+type: software
+authors:
+    - given-names: Claas
+      family-names: Rostock
+      affiliation: DNV
+      email: claas.rostock@dnv.com
+      website: 'https://www.linkedin.com/in/claasrostock/?locale=en_US'
+keywords:
+    - plotly
+    - stubs
+    - types
+license: MIT
+license-url: 'https://ClaasRostock.github.io/plotly-stubs/LICENSE.html'
+url: 'https://ClaasRostock.github.io/plotly-stubs/README.html'
+repository-code: 'https://github.com/ClaasRostock/plotly-stubs'
+message: 'Please cite this software using these metadata.'
+cff-version: 1.2.0
