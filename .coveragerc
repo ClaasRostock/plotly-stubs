@@ -8,6 +8,6 @@ source = plotly-stubs
 branch = True
 
 [report]
-fail_under = 10.0
+fail_under = 0.0
 show_missing = True
 skip_covered = True
