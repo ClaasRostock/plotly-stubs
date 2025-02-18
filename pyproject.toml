@@ -1,0 +1,168 @@
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "src/plotly-stubs",
+    "tests",
+    ".coveragerc",
+    ".editorconfig",
+    ".pre-commit-config.yaml",
+    "manage.py",
+    "pyproject.toml",
+    "pytest.ini",
+    "ruff.toml",
+    "uv.lock",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/plotly-stubs",
+]
+
+[project]
+name = "plotly-stubs"
+version = "0.1.0"
+description = "example package short description."
+readme = "README.md"
+requires-python = ">= 3.10, < 3.14"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
+]
+maintainers = [
+    { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
+]
+keywords = [
+    "plotly",
+    "stubs",
+    "types",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    # "Operating System :: MacOS",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+]
+
+[project.optional-dependencies]
+
+[project.urls]
+Homepage = "https://github.com/ClaasRostock/plotly-stubs"
+Documentation = "https://ClaasRostock.github.io/plotly-stubs/README.html"
+Repository = "https://github.com/ClaasRostock/plotly-stubs.git"
+Issues = "https://github.com/ClaasRostock/plotly-stubs/issues"
+Changelog = "https://github.com/ClaasRostock/plotly-stubs/blob/main/CHANGELOG.md"
+
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "ruff>=0.9.5",
+    "pyright>=1.1.393",
+    "mypy>=1.15",
+    "sourcery>=1.33",
+    "pre-commit>=4.0",
+    "Sphinx>=8.1",
+    "sphinx-argparse-cli>=1.19",
+    "sphinx-autodoc-typehints>=3.0",
+    "sphinxcontrib-mermaid>=1.0.0",
+    "myst-parser>=4.0",
+    "furo>=2024.8",
+    "jupyter>=1.1",
+    "numpy>=1.26; python_version < '3.13'",
+    "numpy>=2.2; python_version >= '3.13'",
+    "pandas-stubs>=2.2",
+    "plotly>=6.0",
+]
+
+[tool.uv]
+default-groups = [
+    "dev",
+]
+native-tls = true
+
+
+
+[tool.mypy]
+plugins = [
+    "numpy.typing.mypy_plugin",
+]
+mypy_path = "stubs"
+files = [
+    "src",
+    "tests",
+    "demos",
+]
+exclude = [
+    "^src/folder_to_be_excluded/",
+]
+check_untyped_defs = true
+disable_error_code = [
+    "misc",
+    "import-untyped",
+]
+
+
+[tool.pyright]
+stubPath = "stubs"
+include = [
+    "src",
+    "tests",
+    "demos",
+]
+exclude = [
+    "src/folder_to_be_excluded",
+]
+
+typeCheckingMode = "basic"
+useLibraryCodeForTypes = true
+reportMissingParameterType = "error"
+reportUnknownParameterType = "warning"
+reportUnknownMemberType = "warning"                # consider to set to `false` if you work a lot with matplotlib and pandas, which are both not properly typed and known to trigger this warning
+reportMissingTypeArgument = "error"
+reportPropertyTypeMismatch = "error"
+reportFunctionMemberAccess = "warning"
+reportPrivateUsage = "warning"
+reportTypeCommentUsage = "warning"
+reportIncompatibleMethodOverride = "warning"
+reportIncompatibleVariableOverride = "error"
+reportInconsistentConstructor = "error"
+reportOverlappingOverload = "warning"
+reportUninitializedInstanceVariable = "warning"
+reportCallInDefaultInitializer = "warning"
+reportUnnecessaryIsInstance = "information"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryComparison = "warning"
+reportUnnecessaryContains = "warning"
+reportUnusedCallResult = "warning"
+reportUnusedExpression = "warning"
+reportMatchNotExhaustive = "warning"
+reportShadowedImports = "warning"
+reportUntypedFunctionDecorator = "warning"
+reportUntypedClassDecorator = "warning"
+reportUntypedBaseClass = "error"
+reportUntypedNamedTuple = "warning"
+reportUnnecessaryTypeIgnoreComment = "information"
+# Activate the following rules only locally and temporary, i.e. for a QA session.
+# (For server side CI they are considered too strict.)
+# reportMissingTypeStubs = true
+# reportConstantRedefinition = "warning"
+# reportImportCycles = "warning"
+# reportImplicitStringConcatenation = "warning"

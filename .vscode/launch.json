@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "purpose": [
+                "debug-test"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "autoReload": {
+                "enable": true
+            },
+            "justMyCode": true,
+        },
+        {
+            "name": "Python: Current File, cwd = file dir",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${fileDirname}", // working dir = dir where current file is
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "autoReload": {
+                "enable": true
+            },
+        },
+        {
+            "name": "Python: Current File, cwd = workspace root folder",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}", // working dir = workspace root folder
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "autoReload": {
+                "enable": true
+            },
+            "justMyCode": true,
+        },
+    ]
+}
