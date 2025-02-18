@@ -11,7 +11,8 @@ import plotly.graph_objs.box.legendgrouptitle as legendgrouptitle
 import plotly.graph_objs.box.marker as marker
 
 # Import of subpackages for which stubs have been created:
-from plotly.graph_objs.box import selected, unselected
+import plotly.graph_objs.box.selected as selected
+import plotly.graph_objs.box.unselected as unselected
 
 # Direct import of names this subpackage exports:
 from plotly.graph_objs.box._hoverlabel import Hoverlabel

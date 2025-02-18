@@ -8,6 +8,11 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 -/-
 
 
+## [0.0.3] - 2025-02-18
+
+* Beta release 0.0.3
+
+
 ## [0.0.2] - 2025-02-18
 
 * Beta release 0.0.2

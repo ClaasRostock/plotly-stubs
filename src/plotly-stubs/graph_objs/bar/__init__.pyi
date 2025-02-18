@@ -11,7 +11,8 @@ import plotly.graph_objs.bar.legendgrouptitle as legendgrouptitle
 import plotly.graph_objs.bar.marker as marker
 
 # Import of subpackages for which stubs have been created:
-from plotly.graph_objs.bar import selected, unselected
+import plotly.graph_objs.bar.selected as selected
+import plotly.graph_objs.bar.unselected as unselected
 
 # Direct import of names this subpackage exports:
 from plotly.graph_objs.bar._error_x import ErrorX

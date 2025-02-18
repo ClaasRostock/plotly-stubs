@@ -1,4 +1,4 @@
-from plotly.express import colors
+import plotly.express.colors as colors
 from plotly.express._chart_types import (
     area,
     bar,
