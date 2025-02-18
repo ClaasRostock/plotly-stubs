@@ -1,55 +1,53 @@
-from plotly.graph_objs import (
-    bar,
-    barpolar,
-    box,
-    candlestick,
-    carpet,
-    choropleth,
-    choroplethmap,
-    choroplethmapbox,
-    cone,
-    contour,
-    contourcarpet,
-    densitymap,
-    densitymapbox,
-    funnel,
-    funnelarea,
-    heatmap,
-    histogram,
-    histogram2d,
-    histogram2dcontour,
-    icicle,
-    image,
-    indicator,
-    isosurface,
-    layout,
-    mesh3d,
-    ohlc,
-    parcats,
-    parcoords,
-    pie,
-    sankey,
-    scatter,
-    scatter3d,
-    scattercarpet,
-    scattergeo,
-    scattergl,
-    scattermap,
-    scattermapbox,
-    scatterpolar,
-    scatterpolargl,
-    scattersmith,
-    scatterternary,
-    splom,
-    streamtube,
-    sunburst,
-    surface,
-    table,
-    treemap,
-    violin,
-    volume,
-    waterfall,
-)
+import plotly.graph_objs.bar as bar
+import plotly.graph_objs.barpolar as barpolar
+import plotly.graph_objs.box as box
+import plotly.graph_objs.candlestick as candlestick
+import plotly.graph_objs.carpet as carpet
+import plotly.graph_objs.choropleth as choropleth
+import plotly.graph_objs.choroplethmap as choroplethmap
+import plotly.graph_objs.choroplethmapbox as choroplethmapbox
+import plotly.graph_objs.cone as cone
+import plotly.graph_objs.contour as contour
+import plotly.graph_objs.contourcarpet as contourcarpet
+import plotly.graph_objs.densitymap as densitymap
+import plotly.graph_objs.densitymapbox as densitymapbox
+import plotly.graph_objs.funnel as funnel
+import plotly.graph_objs.funnelarea as funnelarea
+import plotly.graph_objs.heatmap as heatmap
+import plotly.graph_objs.histogram as histogram
+import plotly.graph_objs.histogram2d as histogram2d
+import plotly.graph_objs.histogram2dcontour as histogram2dcontour
+import plotly.graph_objs.icicle as icicle
+import plotly.graph_objs.image as image
+import plotly.graph_objs.indicator as indicator
+import plotly.graph_objs.isosurface as isosurface
+import plotly.graph_objs.layout as layout
+import plotly.graph_objs.mesh3d as mesh3d
+import plotly.graph_objs.ohlc as ohlc
+import plotly.graph_objs.parcats as parcats
+import plotly.graph_objs.parcoords as parcoords
+import plotly.graph_objs.pie as pie
+import plotly.graph_objs.sankey as sankey
+import plotly.graph_objs.scatter as scatter
+import plotly.graph_objs.scatter3d as scatter3d
+import plotly.graph_objs.scattercarpet as scattercarpet
+import plotly.graph_objs.scattergeo as scattergeo
+import plotly.graph_objs.scattergl as scattergl
+import plotly.graph_objs.scattermap as scattermap
+import plotly.graph_objs.scattermapbox as scattermapbox
+import plotly.graph_objs.scatterpolar as scatterpolar
+import plotly.graph_objs.scatterpolargl as scatterpolargl
+import plotly.graph_objs.scattersmith as scattersmith
+import plotly.graph_objs.scatterternary as scatterternary
+import plotly.graph_objs.splom as splom
+import plotly.graph_objs.streamtube as streamtube
+import plotly.graph_objs.sunburst as sunburst
+import plotly.graph_objs.surface as surface
+import plotly.graph_objs.table as table
+import plotly.graph_objs.treemap as treemap
+import plotly.graph_objs.violin as violin
+import plotly.graph_objs.volume as volume
+import plotly.graph_objs.waterfall as waterfall
 from plotly.graph_objs._bar import Bar
 from plotly.graph_objs._barpolar import Barpolar
 from plotly.graph_objs._box import Box

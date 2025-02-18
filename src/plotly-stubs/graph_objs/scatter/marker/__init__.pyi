@@ -9,7 +9,7 @@
 # -/-
 
 # Import of subpackages for which stubs have been created:
-from plotly.graph_objs.scatter.marker import colorbar
+import plotly.graph_objs.scatter.marker.colorbar as colorbar
 
 # Direct import of names this subpackage exports:
 from plotly.graph_objs.scatter.marker._colorbar import ColorBar

@@ -10,7 +10,9 @@ import plotly.graph_objs.scatter.hoverlabel as hoverlabel
 import plotly.graph_objs.scatter.legendgrouptitle as legendgrouptitle
 
 # Import of subpackages for which stubs have been created:
-from plotly.graph_objs.scatter import marker, selected, unselected
+import plotly.graph_objs.scatter.marker as marker
+import plotly.graph_objs.scatter.selected as selected
+import plotly.graph_objs.scatter.unselected as unselected
 
 # Direct import of names this subpackage exports:
 from plotly.graph_objs.scatter._error_x import ErrorX
