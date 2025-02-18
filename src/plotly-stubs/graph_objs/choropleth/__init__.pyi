@@ -12,7 +12,8 @@ import plotly.graph_objs.choropleth.legendgrouptitle as legendgrouptitle
 import plotly.graph_objs.choropleth.marker as marker
 
 # Import of subpackages for which stubs have been created:
-from plotly.graph_objs.choropleth import selected, unselected
+import plotly.graph_objs.choropleth.selected as selected
+import plotly.graph_objs.choropleth.unselected as unselected
 
 #
 # Direct import of names this subpackage exports:

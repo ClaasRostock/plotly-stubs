@@ -1,25 +1,14 @@
 from typing import Any
 
 import pandas as pd
-
-# NOTE: Some import statements are intentionally written as alias imports, i.e.
-#       `import package.subpackage as subpackage`
-#       This is necessary for subpackages for which no stubs have been created yet.
-#       -> For these imports, DO NOT CHANGE the import statements to `from package import subpackage`.
-#       Once stubs for these subpackages are created, the import statements can
-#       be changed to their respective `from package import subpackage` form.
-# Import of subpackages for which _no_ stubs have been created yet:
+import plotly.colors as colors
 import plotly.data as data
+import plotly.graph_objs as graph_objs
+import plotly.io as io
+import plotly.offline as offline
 import plotly.tools as tools
-
-# Import of subpackages for which stubs have been created:
-from plotly import (
-    colors,
-    graph_objs,
-    io,
-    offline,
-    utils,
-)
+import plotly.utils as utils
+from plotly.graph_objs import Figure
 from plotly.version import __version__
 
 __all__ = [
@@ -37,16 +26,16 @@ def plot(
     data_frame: pd.DataFrame,
     kind: str,
     **kwargs: Any,
-) -> graph_objs.Figure: ...
+) -> Figure: ...
 def boxplot_frame(
     data_frame: pd.DataFrame,
     **kwargs: Any,
-) -> graph_objs.Figure: ...
+) -> Figure: ...
 def hist_frame(
     data_frame: pd.DataFrame,
     **kwargs: Any,
-) -> graph_objs.Figure: ...
+) -> Figure: ...
 def hist_series(
     data_frame: pd.DataFrame,
     **kwargs: Any,
-) -> graph_objs.Figure: ...
+) -> Figure: ...

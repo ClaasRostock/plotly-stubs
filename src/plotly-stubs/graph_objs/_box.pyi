@@ -3,6 +3,8 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+import plotly.graph_objs.box.selected as _selected
+import plotly.graph_objs.box.unselected as _unselected
 from plotly.basedatatypes import BaseTraceType as _BaseTraceType
 from plotly.graph_objs.box import (
     Hoverlabel,
@@ -13,8 +15,6 @@ from plotly.graph_objs.box import (
     Stream,
     Unselected,
 )
-from plotly.graph_objs.box import selected as _selected
-from plotly.graph_objs.box import unselected as _unselected
 
 class Box(_BaseTraceType):
     _parent_path_str = ...

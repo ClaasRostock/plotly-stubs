@@ -3,6 +3,8 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+import plotly.graph_objs.layout.newselection as _newselection
+import plotly.graph_objs.layout.template as _template
 from plotly.basedatatypes import BaseLayoutType as _BaseLayoutType
 from plotly.graph_objs.layout import (
     Activeselection,
@@ -37,8 +39,6 @@ from plotly.graph_objs.layout import (
     XAxis,
     YAxis,
 )
-from plotly.graph_objs.layout import newselection as _newselection
-from plotly.graph_objs.layout import template as _template
 
 class Layout(_BaseLayoutType):
     _subplotid_prop_names = ...

@@ -3,6 +3,8 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+import plotly.graph_objs.bar.selected as _selected
+import plotly.graph_objs.bar.unselected as _unselected
 from plotly.basedatatypes import BaseTraceType as _BaseTraceType
 from plotly.graph_objs.bar import (
     ErrorX,
@@ -17,8 +19,6 @@ from plotly.graph_objs.bar import (
     Textfont,
     Unselected,
 )
-from plotly.graph_objs.bar import selected as _selected
-from plotly.graph_objs.bar import unselected as _unselected
 
 class Bar(_BaseTraceType):
     _parent_path_str = ...

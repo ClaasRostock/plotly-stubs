@@ -121,6 +121,7 @@ raises-require-match-for = [
     "PYI042",  # Type alias {name} should be CamelCase
     "PYI002",  # complex if statement in stub
     "PLR0913", # Too many arguments in function definition
+    "PLR0402", # Use `from package import module` in lieu of alias `import package.module as module`
 ]
 # `tests` specific ignores
 "tests/**/*" = [

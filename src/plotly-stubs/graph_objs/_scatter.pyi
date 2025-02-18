@@ -3,6 +3,8 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+import plotly.graph_objs.scatter.selected as _selected
+import plotly.graph_objs.scatter.unselected as _unselected
 from plotly.basedatatypes import BaseTraceType as _BaseTraceType
 from plotly.graph_objs.scatter import (
     ErrorX,
@@ -18,8 +20,6 @@ from plotly.graph_objs.scatter import (
     Textfont,
     Unselected,
 )
-from plotly.graph_objs.scatter import selected as _selected
-from plotly.graph_objs.scatter import unselected as _unselected
 
 class Scatter(_BaseTraceType):
     _parent_path_str = ...
