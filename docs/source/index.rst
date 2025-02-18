@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 plotly-stubs Documentation
-========================
+==========================
 
 .. toctree::
    :maxdepth: 4
