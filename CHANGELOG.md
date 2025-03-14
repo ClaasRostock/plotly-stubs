@@ -6,6 +6,10 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 ## [Unreleased]
 
 ### Dependencies
+* Updated to Sphinx>=8.1  (from Sphinx>=8.2)
+* Updated to sphinx-autodoc-typehints>=3.0  (from sphinx-autodoc-typehints>=3.1)
+
+### Dependencies
 * Updated to ruff>=0.11.0  (from ruff>=0.9.5)
 * Updated to pyright>=1.1.396  (from pyright>=1.1.393)
 * Updated to sourcery>=1.35  (from sourcery>=1.33)
