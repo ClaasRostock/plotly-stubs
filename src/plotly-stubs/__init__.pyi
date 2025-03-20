@@ -9,10 +9,8 @@ import plotly.offline as offline
 import plotly.tools as tools
 import plotly.utils as utils
 from plotly.graph_objs import Figure
-from plotly.version import __version__
 
 __all__ = [
-    "__version__",
     "colors",
     "data",
     "graph_objs",
