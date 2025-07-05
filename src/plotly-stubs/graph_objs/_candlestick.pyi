@@ -248,7 +248,8 @@ class Candlestick(_BaseTraceType):
         | float
         | Sequence[str]
         | Sequence[float]
-        | np.ndarray[tuple[int, ...], np.dtype[np.float64]] = ...,
+        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
+        | None = ...,
         hovertextsrc: str | None = ...,
         ids: Sequence[str] | np.ndarray[tuple[int, ...], np.dtype[np.str_]] | pd.Series[str] | None = ...,
         idssrc: str | None = ...,
@@ -261,7 +262,7 @@ class Candlestick(_BaseTraceType):
         line: Line | dict[str, str | int | float] | None = ...,
         low: Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
         lowsrc: str | None = ...,
-        meta: Sequence[Any] | dict[str, Any] | np.ndarray[tuple[int, ...], Any] = ...,
+        meta: Sequence[Any] | dict[str, Any] | np.ndarray[tuple[int, ...], Any] | None = ...,
         metasrc: str | None = ...,
         name: str | int | None = ...,
         opacity: int | float | None = ...,
@@ -270,13 +271,18 @@ class Candlestick(_BaseTraceType):
         selectedpoints: Sequence[int] | None = ...,
         showlegend: bool | None = ...,
         stream: Stream | dict[str, int | str] | None = ...,
-        text: str | float | Sequence[str] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] = ...,
+        text: str
+        | float
+        | Sequence[str]
+        | Sequence[float]
+        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
+        | None = ...,
         textsrc: str | None = ...,
         uid: str | int | None = ...,
         uirevision: Hashable | None = ...,
         visible: bool | str | None = ...,
         whiskerwidth: int | float | None = ...,
-        x: Sequence[Any] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] = ...,
+        x: Sequence[Any] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None = ...,
         xaxis: str | None = ...,
         xcalendar: str | None = ...,
         xhoverformat: str | None = ...,
