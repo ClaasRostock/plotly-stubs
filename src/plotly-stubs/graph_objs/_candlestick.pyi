@@ -26,7 +26,7 @@ class Candlestick(_BaseTraceType):
     @property
     def customdata(
         self,
-    ) -> Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]: ...  # -> Any:
+    ) -> Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]: ...
     @customdata.setter
     def customdata(
         self, val: Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]
@@ -78,7 +78,7 @@ class Candlestick(_BaseTraceType):
         self, val: Sequence[str] | np.ndarray[tuple[int, ...], np.dtype[np.str_]] | pd.Series[str] | None
     ) -> None: ...
     @property
-    def idssrc(self) -> None: ...
+    def idssrc(self) -> str | None: ...
     @idssrc.setter
     def idssrc(self, val: str | None) -> None: ...
     @property
@@ -236,7 +236,7 @@ class Candlestick(_BaseTraceType):
         arg: Candlestick | dict[str, Any] | None = ...,
         close: Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
         closesrc: str | None = ...,
-        customdata: str | None = ...,
+        customdata: Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
         customdatasrc: str | None = ...,
         decreasing: Decreasing | dict[str, Any] | None = ...,
         high: Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
