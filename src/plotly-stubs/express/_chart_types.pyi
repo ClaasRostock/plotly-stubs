@@ -692,7 +692,7 @@ def line_polar(
     symbol_sequence: Any | None = None,
     symbol_map: Any | None = None,
     markers: bool = False,
-    direction: str = "clockwise",
+    direction: Direction = "clockwise",
     start_angle: int = 90,
     line_close: bool = False,
     line_shape: Any | None = None,
