@@ -7,6 +7,12 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 -/-
 
+## [0.0.6] - 2025-07-29
+
+### Added
+* Added stubs for candlestick graph object and accompanying subpackages. by @IAmAMetalHead in https://github.com/ClaasRostock/plotly-stubs/pull/3
+* Added chart types to plotly express stubs. by @OutSquareCapital in https://github.com/ClaasRostock/plotly-stubs/pull/4
+
 
 ## [0.0.5] - 2025-03-20
 
