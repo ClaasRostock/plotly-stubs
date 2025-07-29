@@ -6,14 +6,14 @@
 #       be changed to their respective `from package import subpackage` form.
 
 # Import of subpackages for which _no_ stubs have been created yet:
+# -/-
+#
+# Import of subpackages for which stubs have been created:
 import plotly.graph_objs.candlestick.decreasing as decreasing
 import plotly.graph_objs.candlestick.hoverlabel as hoverlabel
 import plotly.graph_objs.candlestick.increasing as increasing
 import plotly.graph_objs.candlestick.legendgrouptitle as legendgrouptitle
 
-# Import of subpackages for which stubs have been created:
-# -/-
-#
 # Direct import of names this subpackage exports:
 from plotly.graph_objs.candlestick._decreasing import Decreasing
 from plotly.graph_objs.candlestick._hoverlabel import Hoverlabel
