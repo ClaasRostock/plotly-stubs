@@ -1,10 +1,14 @@
 from collections.abc import Sequence
-from typing import Any, Literal, Protocol, TypeAlias
+from typing import Any, Literal, Protocol, TypeAlias, TypedDict
 
 import pandas as pd
 import plotly.graph_objs as go
 import polars as pl
 from numpy.typing import NDArray
+
+class MapCenter(TypedDict):
+    lat: int | float
+    lon: int | float
 
 class DataFrameCompatible(Protocol):
     # More details at https://data-apis.org/dataframe-protocol/latest/index.html
@@ -26,17 +30,17 @@ RenderMode: TypeAlias = Literal["auto", "webgl", "svg"]
 TrendLineScope: TypeAlias = Literal["trace", "overall"]
 TrendlineFunc: TypeAlias = Literal["ols", "lowess", "rolling", "expanding", "ewm"]
 BarMode: TypeAlias = Literal["relative", "group", "overlay"]
-BarNorm: TypeAlias = Literal["fraction", "percent"]
+ValNorm: TypeAlias = Literal["fraction", "percent"]
 EcdfMode: TypeAlias = Literal["reversed", "complementary", "standard"]
 Direction: TypeAlias = Literal["clockwise", "counterclockwise"]
 HistNorm: TypeAlias = Literal["percent", "probability", "density", "probability density"]
 HistFunc: TypeAlias = Literal["count", "sum", "avg", "min", "max"]
 Marginal: TypeAlias = Literal["rug", "box", "violin", "histogram"]
-
+Points: TypeAlias = Literal["all", "outliers", "suspectedoutliers"]
 LineShape: TypeAlias = Literal["linear", "spline", "hv", "vh", "hvh", "vhv"]
 Orientation: TypeAlias = Literal["v", "h"]
-StripMode: TypeAlias = Literal["group", "overlay"]
-
+DisplayMode: TypeAlias = Literal["group", "overlay"]
+LocationMode: TypeAlias = Literal["ISO-3", "USA-states", "country names"]
 Templates: TypeAlias = Literal[
     "ggplot2",
     "seaborn",
@@ -255,7 +259,7 @@ def area(
     symbol_map: MapIdentity | None = None,
     markers: bool = False,
     orientation: Orientation | None = None,
-    groupnorm: Any | None = None,
+    groupnorm: ValNorm | None = None,
     log_x: bool = False,
     log_y: bool = False,
     range_x: Sequence[int | float] | None = None,
@@ -282,7 +286,7 @@ def bar(
     hover_data: HoverData | None = None,
     custom_data: MultiColumnData | None = None,
     text: ColumnData | None = None,
-    base: Any | None = None,
+    base: ColumnData | None = None,
     error_x: ColumnData | None = None,
     error_x_minus: ColumnData | None = None,
     error_y: ColumnData | None = None,
@@ -314,8 +318,8 @@ def bar(
 ) -> go.Figure: ...
 def timeline(
     data_frame: FrameOrDict | None = None,
-    x_start: Any | None = None,
-    x_end: Any | None = None,
+    x_start: ColumnData | None = None,
+    x_end: ColumnData | None = None,
     y: MultiColumnData | None = None,
     color: ColumnData | None = None,
     pattern_shape: ColumnData | None = None,
@@ -373,7 +377,7 @@ def histogram(
     opacity: float | None = None,
     orientation: Orientation | None = None,
     barmode: BarMode = "relative",
-    barnorm: BarNorm | None = None,
+    barnorm: ValNorm | None = None,
     histnorm: HistNorm | None = None,
     log_x: bool = False,
     log_y: bool = False,
@@ -452,12 +456,12 @@ def violin(
     color_discrete_sequence: list[str] | None = None,
     color_discrete_map: MapIdentity | None = None,
     orientation: Orientation | None = None,
-    violinmode: Any | None = None,
+    violinmode: Literal["group", "overlay"] = "group",
     log_x: bool = False,
     log_y: bool = False,
     range_x: Sequence[int | float] | None = None,
     range_y: Sequence[int | float] | None = None,
-    points: Any | None = None,
+    points: Points | bool = "outliers",
     box: bool = False,
     title: str | None = None,
     subtitle: str | None = None,
@@ -485,12 +489,12 @@ def box(
     color_discrete_sequence: list[str] | None = None,
     color_discrete_map: MapIdentity | None = None,
     orientation: Orientation | None = None,
-    boxmode: Any | None = None,
+    boxmode: DisplayMode = "group",
     log_x: bool = False,
     log_y: bool = False,
     range_x: Sequence[int | float] | None = None,
     range_y: Sequence[int | float] | None = None,
-    points: Any | None = None,
+    points: Points | bool = "outliers",
     notched: bool = False,
     title: str | None = None,
     subtitle: str | None = None,
@@ -518,7 +522,7 @@ def strip(
     color_discrete_sequence: list[str] | None = None,
     color_discrete_map: MapIdentity | None = None,
     orientation: Orientation | None = None,
-    stripmode: StripMode | None = None,
+    stripmode: DisplayMode = "group",
     log_x: bool = False,
     log_y: bool = False,
     range_x: Sequence[int | float] | None = None,
@@ -702,8 +706,8 @@ def scatter_polar(
     direction: Direction = "clockwise",
     start_angle: int = 90,
     size_max: int = 20,
-    range_r: Any | None = None,
-    range_theta: Any | None = None,
+    range_r: Sequence[int | float] | None = None,
+    range_theta: Sequence[int | float] | None = None,
     log_r: bool = False,
     render_mode: RenderMode = "auto",
     title: str | None = None,
@@ -740,8 +744,8 @@ def line_polar(
     line_close: bool = False,
     line_shape: LineShape | None = None,
     render_mode: RenderMode = "auto",
-    range_r: Any | None = None,
-    range_theta: Any | None = None,
+    range_r: Sequence[int | float] | None = None,
+    range_theta: Sequence[int | float] | None = None,
     log_r: bool = False,
     title: str | None = None,
     subtitle: str | None = None,
@@ -758,7 +762,7 @@ def bar_polar(
     hover_name: ColumnData | None = None,
     hover_data: HoverData | None = None,
     custom_data: MultiColumnData | None = None,
-    base: Any | None = None,
+    base: ColumnData | None = None,
     animation_frame: ColumnData | None = None,
     animation_group: ColumnData | None = None,
     category_orders: dict[str, list[str]] | None = None,
@@ -770,12 +774,12 @@ def bar_polar(
     pattern_shape_map: MapIdentity | None = None,
     range_color: Sequence[int | float] | None = None,
     color_continuous_midpoint: int | float | None = None,
-    barnorm: BarNorm | None = None,
+    barnorm: ValNorm | None = None,
     barmode: BarMode = "relative",
     direction: Direction = "clockwise",
     start_angle: int = 90,
-    range_r: Any | None = None,
-    range_theta: Any | None = None,
+    range_r: Sequence[int | float] | None = None,
+    range_theta: Sequence[int | float] | None = None,
     log_r: bool = False,
     title: str | None = None,
     subtitle: str | None = None,
@@ -785,10 +789,10 @@ def bar_polar(
 ) -> go.Figure: ...
 def choropleth(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
-    locations: Any | None = None,
-    locationmode: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
+    locations: ColumnData | None = None,
+    locationmode: LocationMode | None = None,
     geojson: Any | None = None,
     featureidkey: Any | None = None,
     color: ColumnData | None = None,
@@ -811,7 +815,7 @@ def choropleth(
     color_continuous_midpoint: int | float | None = None,
     projection: Any | None = None,
     scope: Any | None = None,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     fitbounds: Any | None = None,
     basemap_visible: Any | None = None,
     title: str | None = None,
@@ -822,10 +826,10 @@ def choropleth(
 ) -> go.Figure: ...
 def scatter_geo(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
-    locations: Any | None = None,
-    locationmode: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
+    locations: ColumnData | None = None,
+    locationmode: LocationMode | None = None,
     geojson: Any | None = None,
     featureidkey: Any | None = None,
     color: ColumnData | None = None,
@@ -855,7 +859,7 @@ def scatter_geo(
     size_max: int = 20,
     projection: Any | None = None,
     scope: Any | None = None,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     fitbounds: Any | None = None,
     basemap_visible: Any | None = None,
     title: str | None = None,
@@ -866,10 +870,10 @@ def scatter_geo(
 ) -> go.Figure: ...
 def line_geo(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
-    locations: Any | None = None,
-    locationmode: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
+    locations: ColumnData | None = None,
+    locationmode: LocationMode | None = None,
     geojson: Any | None = None,
     featureidkey: Any | None = None,
     color: ColumnData | None = None,
@@ -898,7 +902,7 @@ def line_geo(
     markers: bool = False,
     projection: Any | None = None,
     scope: Any | None = None,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     fitbounds: Any | None = None,
     basemap_visible: Any | None = None,
     title: str | None = None,
@@ -909,8 +913,8 @@ def line_geo(
 ) -> go.Figure: ...
 def scatter_map(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
     color: ColumnData | None = None,
     text: ColumnData | None = None,
     hover_name: ColumnData | None = None,
@@ -929,7 +933,7 @@ def scatter_map(
     opacity: float | None = None,
     size_max: int = 20,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     map_style: Any | None = None,
     title: str | None = None,
     subtitle: str | None = None,
@@ -941,7 +945,7 @@ def choropleth_map(
     data_frame: FrameOrDict | None = None,
     geojson: Any | None = None,
     featureidkey: Any | None = None,
-    locations: Any | None = None,
+    locations: ColumnData | None = None,
     color: ColumnData | None = None,
     hover_name: ColumnData | None = None,
     hover_data: HoverData | None = None,
@@ -957,7 +961,7 @@ def choropleth_map(
     color_continuous_midpoint: int | float | None = None,
     opacity: float | None = None,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     map_style: Any | None = None,
     title: str | None = None,
     subtitle: str | None = None,
@@ -967,8 +971,8 @@ def choropleth_map(
 ) -> go.Figure: ...
 def density_map(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
     z: MultiColumnData | None = None,
     hover_name: ColumnData | None = None,
     hover_data: HoverData | None = None,
@@ -982,7 +986,7 @@ def density_map(
     color_continuous_midpoint: int | float | None = None,
     opacity: float | None = None,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     map_style: Any | None = None,
     radius: Any | None = None,
     title: str | None = None,
@@ -993,8 +997,8 @@ def density_map(
 ) -> go.Figure: ...
 def line_map(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
     color: ColumnData | None = None,
     text: ColumnData | None = None,
     hover_name: ColumnData | None = None,
@@ -1008,7 +1012,7 @@ def line_map(
     color_discrete_sequence: list[str] | None = None,
     color_discrete_map: MapIdentity | None = None,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     map_style: Any | None = None,
     title: str | None = None,
     subtitle: str | None = None,
@@ -1018,8 +1022,8 @@ def line_map(
 ) -> go.Figure: ...
 def scatter_mapbox(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
     color: ColumnData | None = None,
     text: ColumnData | None = None,
     hover_name: ColumnData | None = None,
@@ -1038,7 +1042,7 @@ def scatter_mapbox(
     opacity: float | None = None,
     size_max: int = 20,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     mapbox_style: Any | None = None,
     title: str | None = None,
     subtitle: str | None = None,
@@ -1050,7 +1054,7 @@ def choropleth_mapbox(
     data_frame: FrameOrDict | None = None,
     geojson: Any | None = None,
     featureidkey: Any | None = None,
-    locations: Any | None = None,
+    locations: ColumnData | None = None,
     color: ColumnData | None = None,
     hover_name: ColumnData | None = None,
     hover_data: HoverData | None = None,
@@ -1066,7 +1070,7 @@ def choropleth_mapbox(
     color_continuous_midpoint: int | float | None = None,
     opacity: float | None = None,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     mapbox_style: Any | None = None,
     title: str | None = None,
     subtitle: str | None = None,
@@ -1076,8 +1080,8 @@ def choropleth_mapbox(
 ) -> go.Figure: ...
 def density_mapbox(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
     z: MultiColumnData | None = None,
     hover_name: ColumnData | None = None,
     hover_data: HoverData | None = None,
@@ -1091,7 +1095,7 @@ def density_mapbox(
     color_continuous_midpoint: int | float | None = None,
     opacity: float | None = None,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     mapbox_style: Any | None = None,
     radius: Any | None = None,
     title: str | None = None,
@@ -1102,8 +1106,8 @@ def density_mapbox(
 ) -> go.Figure: ...
 def line_mapbox(
     data_frame: FrameOrDict | None = None,
-    lat: Any | None = None,
-    lon: Any | None = None,
+    lat: ColumnData | None = None,
+    lon: ColumnData | None = None,
     color: ColumnData | None = None,
     text: ColumnData | None = None,
     hover_name: ColumnData | None = None,
@@ -1117,7 +1121,7 @@ def line_mapbox(
     color_discrete_sequence: list[str] | None = None,
     color_discrete_map: MapIdentity | None = None,
     zoom: int = 8,
-    center: Any | None = None,
+    center: MapCenter | None = None,
     mapbox_style: Any | None = None,
     title: str | None = None,
     subtitle: str | None = None,
