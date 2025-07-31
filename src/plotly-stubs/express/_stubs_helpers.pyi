@@ -13,7 +13,7 @@ class DataFrameCompatible(Protocol):
     # More details at https://data-apis.org/dataframe-protocol/latest/index.html
     def __dataframe__(self, nan_as_null: bool = ..., allow_copy: bool = ...) -> Any: ...
 
-ArrayLike: TypeAlias = Sequence[Any] | pd.Series | pl.Series | NDArray[Any]
+ArrayLike: TypeAlias = Sequence[Any] | pd.Series | pl.Series | NDArray[Any] | pd.Index
 FrameOrDict: TypeAlias = DataFrameCompatible | dict[str, ArrayLike] | Sequence[dict[str, Any]]
 ColumnData: TypeAlias = str | int | ArrayLike
 MultiColumnData: TypeAlias = ColumnData | list[ColumnData]
