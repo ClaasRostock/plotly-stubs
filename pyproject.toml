@@ -23,6 +23,9 @@ packages = [
     "src/plotly-stubs",
 ]
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 [project]
 name = "plotly-stubs"
 version = "0.0.6"
@@ -88,7 +91,7 @@ dev = [
     "jupyter>=1.1",
     "numpy>=2.3",
     "pandas-stubs>=2.3",
-    "plotly>=6.5",
+    "plotly>=6.0",
     "polars>=1.31.0",
 ]
 
