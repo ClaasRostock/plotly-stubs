@@ -10,7 +10,7 @@ src = [
     "src",
 ]
 line-length = 120
-target-version = "py310"
+target-version = "py311"
 
 [lint]
 # Settings for Ruff linter (invoked with `uv run ruff check`).
@@ -121,7 +121,7 @@ raises-require-match-for = [
     "PYI042",  # Type alias {name} should be CamelCase
     "PYI002",  # complex if statement in stub
     "PLR0913", # Too many arguments in function definition
-    "PLR0402", # Use `from package import module` in lieu of alias `import package.module as module`
+    "PLR0402", # Use `from package import module` in lieu of alias `import package.module as module` - Necessary as partly we need to write imports as e.g. `import plotly.graph_objs.waterfall as waterfall`
 ]
 # `tests` specific ignores
 "tests/**/*" = [
@@ -153,6 +153,16 @@ raises-require-match-for = [
     "INP001",  # File is part of an implicit namespace package. Add an `__init__.py`. (NOTE: tutorials are not intended to be a module, __init__.py hence not required.)
     "T201",    # `print` found
     "E402",    # Module level import not at top of cell
+]
+# utils/logging specific ignores
+"**/utils/logging.py" = [
+    "A005", # Module `logging` shadows a Python standard-library module
+]
+# docs/source/conf.py specific ignores
+"docs/source/conf.py" = [
+    "INP001", # File is part of an implicit namespace package. Add an `__init__.py`. (NOTE: conf.py is not intended to be a module, __init__.py hence not required.)
+    "A001",   # Variable {name} is shadowing a Python builtin
+    "D100",   # Missing docstring in public module
 ]
 
 

@@ -5,8 +5,9 @@
     "recommendations": [
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "visualstudioexptteam.vscodeintellicode",
-        "njqdev.vscode-python-typehint",
+        "github.copilot-chat",
+        "ms-python.debugpy",
+        "ms-python.vscode-python-envs",
         "charliermarsh.ruff",
         "sourcery.sourcery",
         "njpwerner.autodocstring",

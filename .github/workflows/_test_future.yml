@@ -18,16 +18,27 @@ jobs:
           - version: '3.14.0-alpha - 3.14.0'
             uvpy: '3.14'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
-          enable-cache: false
-          cache-dependency-glob: "uv.lock"
+          enable-cache: true
+          cache-dependency-glob: 'uv.lock'
       - name: Install Python ${{ matrix.python.version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python.version }}
+      - name: Remove Python upper version constraint from pyproject.toml
+        shell: pwsh
+        run: |
+          $File = Get-Item pyproject.toml
+          $Content = Get-Content $File -Raw
+          [regex]$RequiresPythonPattern = '(?<!-)(\brequires-python = "\s?[>=]{1,2}\s?\d+\.\d+\.?\d*\.?[\d\w]*\s?)(,\s?[<=]{1,2}\s?\d+\.?\d*\.?\d*\.?[\d\w]*\s?)?(")'
+          if ($Content -match $RequiresPythonPattern) {
+              $RequiresPythonFound = $Matches[0]
+              $RequiresPythonReplacement = $Matches[1] + $Matches[3]
+              $Content -Replace $RequiresPythonFound, $RequiresPythonReplacement | Set-Content $File -NoNewline
+          }
       - name: Install the project
         run: uv sync -p ${{ matrix.python.uvpy }} -U --no-dev
       - name: Run pytest
