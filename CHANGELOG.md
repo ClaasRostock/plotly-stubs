@@ -38,7 +38,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   * Updated 'mypy-type-checker.reportingScope' to 'custom'.
 * VS Code recommended extensions:
   * Removed deprecated IntelliCode extension and replaced it by GitHub Copilot Chat as recommended replacement.
-    * Removed njqdev.vscode-python-typehint (Python Type Hint). Not maintained since 1 year, and the functionality is now covered by GitHub Copilot.
+    * Removed njqdev.vscode-python-typehint (Python Type Hint). Not maintained for a year, and the functionality is now covered by GitHub Copilot.
     * Added 'ms-python.debugpy' (Python Debugger).
     * Added 'ms-python.vscode-python-envs' (Python Environments). This VS Code extension is expected to replace the legacy VS Code Settings
       "python.terminal.activateEnvironment" and "python.terminal.activateEnvInCurrentTerminal".
