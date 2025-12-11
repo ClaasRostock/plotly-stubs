@@ -105,7 +105,9 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Beta release 0.0.1
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.5...HEAD
+[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.6...v0.1.0
+[0.0.6]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.2...v0.0.3
