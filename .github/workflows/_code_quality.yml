@@ -11,7 +11,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          enable-cache: false
+          enable-cache: true
           cache-dependency-glob: "uv.lock"
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -30,7 +30,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          enable-cache: false
+          enable-cache: true
           cache-dependency-glob: "uv.lock"
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -49,7 +49,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          enable-cache: false
+          enable-cache: true
           cache-dependency-glob: "uv.lock"
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -68,7 +68,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          enable-cache: false
+          enable-cache: true
           cache-dependency-glob: "uv.lock"
       - name: Set up Python
         uses: actions/setup-python@v6
