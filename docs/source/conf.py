@@ -1,4 +1,3 @@
-# ruff: noqa
 # mypy: ignore-errors
 
 # Configuration file for the Sphinx documentation builder.
@@ -26,7 +25,7 @@ copyright = "2024, DNV AS. All rights reserved."
 author = "Claas Rostock, , "
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.6"
+release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -69,7 +68,7 @@ exclude_patterns = []
 html_title = f"plotly-stubs {release}"
 html_theme = "furo"
 html_static_path = ["_static"]
-# html_logo = "_static/plotly-stubs.svg"
+# html_logo = "_static/plotly-stubs.svg"  # noqa: ERA001
 autodoc_default_options = {
     "member-order": "groupwise",
     "undoc-members": True,
