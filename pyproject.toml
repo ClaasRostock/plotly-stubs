@@ -31,7 +31,7 @@ name = "plotly-stubs"
 version = "0.0.6"
 description = "Type stubs for plotly."
 readme = "README.md"
-requires-python = ">= 3.10, < 3.14"
+requires-python = ">= 3.11, < 3.14"
 license = { file = "LICENSE" }
 authors = [
     { name = "Claas Rostock", email = "claas.rostock@dnv.com" },
@@ -47,7 +47,6 @@ keywords = [
 classifiers = [
     "Development Status :: 4 - Beta",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
