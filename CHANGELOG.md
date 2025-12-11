@@ -14,7 +14,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
   Main reason being that this removes the need to support numpy 1.x  (numpy>=2.3 supports Python 3.11 upwards -> so do we) <br>
 
 ### Added
-* Added graph types to the plotly.express subpackage. by @OutSquareCapital in https://github.com/ClaasRostock/plotly-stubs/pull/5
+* Added graph types to the plotly.express subpackage, by @OutSquareCapital in https://github.com/ClaasRostock/plotly-stubs/pull/5
 
 ### Changed
 * pyproject.toml:
