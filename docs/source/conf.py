@@ -68,7 +68,7 @@ exclude_patterns = []
 html_title = f"plotly-stubs {release}"
 html_theme = "furo"
 html_static_path = ["_static"]
-# html_logo = "_static/plotly-stubs.svg"
+# html_logo = "_static/plotly-stubs.svg"  # noqa: ERA001
 autodoc_default_options = {
     "member-order": "groupwise",
     "undoc-members": True,
