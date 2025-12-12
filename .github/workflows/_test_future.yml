@@ -14,6 +14,7 @@ jobs:
         platform:
           - runner: ubuntu-latest
           - runner: windows-latest
+          - runner: macos-latest
         python:
           - version: '3.15.0-alpha - 3.15.0'
             uvpy: '3.15'

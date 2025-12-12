@@ -12,7 +12,7 @@ jobs:
         platform:
           - runner: ubuntu-latest
           - runner: windows-latest
-          # - runner: macos-latest
+          - runner: macos-latest
         python:
           - version: '3.11'
           - version: '3.12'
