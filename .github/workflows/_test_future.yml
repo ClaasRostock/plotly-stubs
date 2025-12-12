@@ -1,10 +1,10 @@
-name: Unit Tests (py314)
-# Test also with Python 3.14 (experimental; workflow will not fail on error.)
+name: Unit Tests (py315)
+# Test also with Python 3.15 (experimental; workflow will not fail on error.)
 
 on: workflow_call
 
 jobs:
-  test314:
+  test315:
     name: Test on ${{matrix.python.version}}-${{matrix.platform.runner}} (experimental)
     continue-on-error: true
     runs-on: ${{ matrix.platform.runner }}
@@ -15,8 +15,8 @@ jobs:
           - runner: ubuntu-latest
           - runner: windows-latest
         python:
-          - version: '3.14.0-alpha - 3.14.0'
-            uvpy: '3.14'
+          - version: '3.15.0-alpha - 3.15.0'
+            uvpy: '3.15'
     steps:
       - uses: actions/checkout@v5
       - name: Install uv
