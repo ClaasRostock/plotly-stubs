@@ -7,6 +7,14 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 -/-
 
+
+## [0.1.1] - 2025-12-12
+
+### Added
+* Added support for Python 3.14
+* Added support for MacOS
+
+
 ## [0.1.0] - 2025-12-11
 
 ### Removed
@@ -105,7 +113,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Beta release 0.0.1
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.6...v0.1.0
 [0.0.6]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.4...v0.0.5
