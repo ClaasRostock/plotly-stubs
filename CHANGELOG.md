@@ -12,6 +12,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ### Added
 * Added support for Python 3.14
+* Added support for MacOS
 
 
 ## [0.1.0] - 2025-12-11
