@@ -5,7 +5,14 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
--/-
+* -/-
+
+
+## [0.1.2] - 2025-12-23
+
+### Added
+* src/plotly-stubs/express/_stubs_helpers.pyi:
+  * Added Pandas DataFrame as allowed type for TypeAlias `FrameOrDict`
 
 
 ## [0.1.1] - 2025-12-12
@@ -113,7 +120,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Beta release 0.0.1
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.6...v0.1.0
 [0.0.6]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.5...v0.0.6
