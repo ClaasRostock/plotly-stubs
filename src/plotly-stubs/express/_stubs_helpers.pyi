@@ -14,7 +14,7 @@ class DataFrameCompatible(Protocol):
     def __dataframe__(self, nan_as_null: bool = ..., allow_copy: bool = ...) -> Any: ...
 
 ArrayLike: TypeAlias = Sequence[Any] | pd.Series | pl.Series | NDArray[Any] | pd.Index
-FrameOrDict: TypeAlias = DataFrameCompatible | dict[str, ArrayLike] | Sequence[dict[str, Any]]
+FrameOrDict: TypeAlias = pd.DataFrame | DataFrameCompatible | dict[str, ArrayLike] | Sequence[dict[str, Any]]
 ColumnData: TypeAlias = str | int | ArrayLike
 MultiColumnData: TypeAlias = ColumnData | list[ColumnData]
 HoverData: TypeAlias = ColumnData | list[str] | dict[str, bool | str | ArrayLike]
