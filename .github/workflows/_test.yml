@@ -4,7 +4,7 @@ on: workflow_call
 
 jobs:
   test:
-    name: Test on ${{matrix.python.version}}-${{ matrix.os }}
+    name: Test on ${{ matrix.python }}-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
@@ -20,7 +20,7 @@ jobs:
           enable-cache: true
           cache-dependency-glob: 'uv.lock'
       - name: Install the project
-        run: uv sync -p ${{ matrix.python.version }} -U --no-dev
+        run: uv sync -p ${{ matrix.python }} -U --no-dev
       - name: Run pytest
         run: >
           uv run --with pytest --with pytest-cov
