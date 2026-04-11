@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path("../../src").absolute()))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "plotly-stubs"
-copyright = "2024, DNV AS. All rights reserved."
+copyright = "2026, DNV AS. All rights reserved."
 author = "Claas Rostock, , "
 
 # The full version, including alpha/beta/rc tags
