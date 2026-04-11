@@ -9,10 +9,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        platform:
-          - runner: ubuntu-latest
-          - runner: windows-latest
-          - runner: macos-latest
+        os: [ubuntu-latest, windows-latest, macos-latest]
         python:
           - version: '3.11'
           - version: '3.12'
