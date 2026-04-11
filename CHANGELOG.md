@@ -8,6 +8,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * -/-
 
 
+## [0.1.3] - 2026-04-11
+
 ### Changed
 * GitHub Workflows:
   * Added 'name: Checkout code' to uses of 'actions/checkout', for better readability and consistency across workflow files.
@@ -172,7 +174,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Beta release 0.0.1
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.2...HEAD
+[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.6...v0.1.0
