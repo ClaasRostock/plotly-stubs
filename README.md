@@ -129,7 +129,7 @@ uv run pytest
 
 ## Meta
 
-Copyright (c) 2025 [Claas Rostock](https://github.com/ClaasRostock). All rights reserved.
+Copyright (c) 2026 [Claas Rostock](https://github.com/ClaasRostock). All rights reserved.
 
 Claas Rostock - [@LinkedIn](https://www.linkedin.com/in/claasrostock/?locale=en_US) - claas.rostock@dnv.com
 
