@@ -25,10 +25,6 @@ jobs:
         with:
           enable-cache: true
           cache-dependency-glob: 'uv.lock'
-      - name: Install Python ${{ matrix.python.version }}
-        uses: actions/setup-python@v6
-        with:
-          python-version: ${{ matrix.python.version }}
       - name: Remove Python upper version constraint from pyproject.toml
         shell: pwsh
         run: |
