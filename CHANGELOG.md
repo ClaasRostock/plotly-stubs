@@ -33,8 +33,10 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
     That way, we ensure it remains _possible_ for users to find a solution, instead of rendering it impossible forever.
 * Sphinx Documentation:
   * Sphinx conf.py: Updated year in copyright statement to 2026
-* README.md: Updated year in copyright statement to 2026
-
+* README.md:
+  * Updated year in copyright statement to 2026
+  * Removed the 'Install Python' step (`### 2. Install Python`), as Python gets automatically installed when running `uv sync` and installing Python separately (non uv-managed Python) is no longer common. Current best practice is to install Python through uv (uv-managed Python).
+* Updated project files with latest changes in python_project_template v0.2.11
 
 ### Dependencies
 * .pre-commit-config.yaml: Updated rev of ruff-pre-commit to v0.15.9
