@@ -91,7 +91,7 @@ dev = [
     "jupyter>=1.1.1",
     "numpy>=2.4",
     "pandas-stubs>=3.0",
-    "plotly>=6.0",
+    "plotly>=6.6",
     "polars>=1.39.3",
 ]
 
