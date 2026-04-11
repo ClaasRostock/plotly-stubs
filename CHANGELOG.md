@@ -36,6 +36,28 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * README.md: Updated year in copyright statement to 2026
 
 
+### Dependencies
+* .pre-commit-config.yaml: Updated rev of ruff-pre-commit to v0.15.9
+* Updated to furo>=2025.12
+* Updated to jupyter>=1.1.1
+* Updated to mypy>=1.19.1
+* Updated to myst-parser>=5.0
+* Updated to numpy>=2.4
+* Updated to pandas-stubs>=3.0
+* Updated to plotly>=6.6
+* Updated to polars>=1.39.3
+* Updated to pre-commit>=4.5
+* Updated to pyright>=1.1.408
+* Updated to pytest-cov>=7.1
+* Updated to pytest>=9.0
+* Updated to ruff>=0.15.9
+* Updated to sourcery>=1.43.0
+* Updated to sphinx-argparse-cli>=1.21.3
+* Updated to sphinx-autodoc-typehints>=3.6
+* Updated to Sphinx>=9.0
+* Updated to sphinxcontrib-mermaid>=2.0
+
+
 ## [0.1.2] - 2025-12-23
 
 ### Added
