@@ -19,7 +19,8 @@ jobs:
           - version: '3.13'
           - version: '3.14'
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v5
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
