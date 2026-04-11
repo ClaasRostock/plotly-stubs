@@ -3434,8 +3434,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Coloraxis, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Coloraxis]: ...
     def for_each_coloraxis(
         self,
         fn: Callable[[layout.Coloraxis], Any],
@@ -3457,8 +3456,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Geo, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Geo]: ...
     def for_each_geo(
         self,
         fn: Callable[[layout.Geo], Any],
@@ -3480,8 +3478,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Legend, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Legend]: ...
     def for_each_legend(
         self,
         fn: Callable[[layout.Legend], Any],
@@ -3503,8 +3500,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Map, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Map]: ...
     def for_each_map(
         self,
         fn: Callable[[layout.Map], Any],
@@ -3526,8 +3522,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Mapbox, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Mapbox]: ...
     def for_each_mapbox(
         self,
         fn: Callable[[layout.Mapbox], Any],
@@ -3549,8 +3544,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Polar, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Polar]: ...
     def for_each_polar(
         self,
         fn: Callable[[layout.Polar], Any],
@@ -3572,8 +3566,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Scene, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Scene]: ...
     def for_each_scene(
         self,
         fn: Callable[[layout.Scene], Any],
@@ -3595,8 +3588,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Smith, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Smith]: ...
     def for_each_smith(
         self,
         fn: Callable[[layout.Smith], Any],
@@ -3618,8 +3610,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.Ternary, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Ternary]: ...
     def for_each_ternary(
         self,
         fn: Callable[[layout.Ternary], Any],
@@ -3641,8 +3632,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.XAxis, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.XAxis]: ...
     def for_each_xaxis(
         self,
         fn: Callable[[layout.XAxis], Any],
@@ -3664,8 +3654,7 @@ class Figure(BaseFigure):
         selector: dict[str, Any] | Callable[[BaseLayoutHierarchyType], bool] | None = ...,
         row: int | None = ...,
         col: int | None = ...,
-    ) -> Generator[layout.YAxis, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.YAxis]: ...
     def for_each_yaxis(
         self,
         fn: Callable[[layout.YAxis], Any],
@@ -3688,8 +3677,7 @@ class Figure(BaseFigure):
         row: int | None = ...,
         col: int | None = ...,
         secondary_y: bool | None = ...,
-    ) -> Generator[layout.Annotation, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Annotation]: ...
     def for_each_annotation(
         self,
         fn: Callable[[layout.Annotation], Any],
@@ -3769,8 +3757,7 @@ class Figure(BaseFigure):
         row: int | None = ...,
         col: int | None = ...,
         secondary_y: bool | None = ...,
-    ) -> Generator[layout.Image, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Image]: ...
     def for_each_layout_image(
         self,
         fn: Callable[[layout.Image], Any],
@@ -3818,8 +3805,7 @@ class Figure(BaseFigure):
         row: int | None = ...,
         col: int | None = ...,
         secondary_y: bool | None = ...,
-    ) -> Generator[layout.Selection, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Selection]: ...
     def for_each_selection(
         self,
         fn: Callable[[layout.Selection], Any],
@@ -3864,8 +3850,7 @@ class Figure(BaseFigure):
         row: int | None = ...,
         col: int | None = ...,
         secondary_y: bool | None = ...,
-    ) -> Generator[layout.Shape, None, None]:  # -> Generator[Any, Any, None]:
-        ...
+    ) -> Generator[layout.Shape]: ...
     def for_each_shape(
         self,
         fn: Callable[[layout.Shape], Any],

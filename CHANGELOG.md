@@ -8,6 +8,60 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * -/-
 
 
+## [0.1.3] - 2026-04-11
+
+### Changed
+* GitHub Workflows:
+  * Added 'name: Checkout code' to uses of 'actions/checkout', for better readability and consistency across workflow files.
+  * Added 'name: Download build artifacts' to uses of 'actions/download-artifact', for better readability and consistency across workflow files.
+  * Added 'name: Publish to PyPI' to uses of 'pypa/gh-action-pypi-publish', for better readability and consistency across workflow files.
+  * Added 'name: Upload build artifacts' to uses of 'actions/upload-artifact', for better readability and consistency across workflow files.
+  * Changed 'uv sync --upgrade' to 'uv sync -U'
+  * Ensured that actions 'upload-artifact' and 'download-artifact' uniformly specify 'dist' as (file)name for the artifact uploaded (or downloaded, respectively), for consistency across workflow files.
+  * pull_request_to_main.yml and nightly_build.yml: Added 'workflow_dispatch:' in selected workflows to allow manual trigger of the workflow.
+  * Removed redundant 'Set up Python' steps (no longer needed, as 'uv sync' will automatically install Python if not present).
+  * Replaced 'Build source distribution and wheel' with 'Build source distribution and wheels' (plural) in workflow step names.
+  * Replaced 'Run twine check' with 'Check build artifacts' in workflow step names, to better reflect the purpose of the step.
+  * Updated the syntax used for the OS and Python matrix in test workflows.
+* pyproject.toml:
+  * Removed upper version constraint from required Python version, i.e. changed the "requires-python" field from ">= 3.11, < 3.15" to ">= 3.11". <br>
+    Detailed background and reasoning in this good yet long post by Henry Schreiner:
+    https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special <br>
+    TLDR: Placing an upper Python version constraint on a Python package causes more harm than it provides benefits.
+    The upper version constraint unnecessarily manifests incompatibility with future Python releases.
+    Removing the upper version constraint ensures the package remains installable as Python evolves.
+    In the majority of cases, the newer Python version will anyhow be backward-compatible. And in the rare case where your package would really not work with a newer Python version,
+    users can at least find a solution manually to resolve the conflict, e.g. by pinning your package to the last version compatible with the environment they install it in.
+    That way, we ensure it remains _possible_ for users to find a solution, instead of rendering it impossible forever.
+* Sphinx Documentation:
+  * Sphinx conf.py: Updated year in copyright statement to 2026
+* README.md:
+  * Updated year in copyright statement to 2026
+  * Removed the 'Install Python' step (`### 2. Install Python`), as Python gets automatically installed when running `uv sync` and installing Python separately (non uv-managed Python) is no longer common. Current best practice is to install Python through uv (uv-managed Python).
+* Updated project files with latest changes in python_project_template v0.2.11
+
+### Dependencies
+* .pre-commit-config.yaml: Updated rev of ruff-pre-commit to v0.15.9
+* Updated to furo>=2025.12
+* Updated to jupyter>=1.1.1
+* Updated to mypy>=1.19.1
+* Updated to myst-parser>=5.0
+* Updated to numpy>=2.4
+* Updated to pandas-stubs>=3.0
+* Updated to plotly>=6.6
+* Updated to polars>=1.39.3
+* Updated to pre-commit>=4.5
+* Updated to pyright>=1.1.408
+* Updated to pytest-cov>=7.1
+* Updated to pytest>=9.0
+* Updated to ruff>=0.15.9
+* Updated to sourcery>=1.43.0
+* Updated to sphinx-argparse-cli>=1.21.3
+* Updated to sphinx-autodoc-typehints>=3.6
+* Updated to Sphinx>=9.0
+* Updated to sphinxcontrib-mermaid>=2.0
+
+
 ## [0.1.2] - 2025-12-23
 
 ### Added
@@ -120,7 +174,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Beta release 0.0.1
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.2...HEAD
+[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.0.6...v0.1.0
