@@ -21,7 +21,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v5
         with:
-          name: artifact
+          name: dist
           path: dist
       - uses: pypa/gh-action-pypi-publish@release/v1
         # with:                                             # Uncomment this line to publish to testpypi
