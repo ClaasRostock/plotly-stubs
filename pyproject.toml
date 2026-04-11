@@ -75,7 +75,7 @@ Changelog = "https://github.com/ClaasRostock/plotly-stubs/blob/main/CHANGELOG.md
 
 [dependency-groups]
 dev = [
-    "pytest>=8.4",
+    "pytest>=9.0",
     "pytest-cov>=7.0",
     "ruff>=0.14.3",
     "pyright>=1.1.407",
