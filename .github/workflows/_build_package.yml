@@ -15,7 +15,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
+          cache-dependency-glob: 'uv.lock'
       - name: Build source distribution and wheels
         run: uv build
       - name: Check build artifacts

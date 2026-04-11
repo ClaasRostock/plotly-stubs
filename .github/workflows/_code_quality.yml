@@ -13,7 +13,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
+          cache-dependency-glob: 'uv.lock'
       - name: Install the project
         run: uv sync -U
       - name: Run ruff format
@@ -29,7 +29,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
+          cache-dependency-glob: 'uv.lock'
       - name: Install the project
         run: uv sync -U
       - name: Run ruff check
@@ -45,7 +45,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
+          cache-dependency-glob: 'uv.lock'
       - name: Install the project
         run: uv sync -U
       - name: Run pyright
@@ -61,7 +61,7 @@ jobs:
         uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
-          cache-dependency-glob: "uv.lock"
+          cache-dependency-glob: 'uv.lock'
       - name: Install the project
         run: uv sync -U
       - name: Run mypy
