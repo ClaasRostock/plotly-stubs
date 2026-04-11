@@ -18,7 +18,7 @@ jobs:
           cache-dependency-glob: "uv.lock"
       - name: Build source distribution and wheel
         run: uv build
-      - name: Run twine check
+      - name: Check build artifacts
         run: uvx twine check --strict dist/*
       - name: Upload build artifacts
         uses: actions/upload-artifact@v5
