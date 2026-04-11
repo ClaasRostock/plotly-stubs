@@ -4,8 +4,8 @@ on: workflow_call
 
 jobs:
   test:
-    name: Test on ${{matrix.python.version}}-${{matrix.platform.runner}}
-    runs-on: ${{ matrix.platform.runner }}
+    name: Test on ${{matrix.python.version}}-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:

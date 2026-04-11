@@ -5,9 +5,9 @@ on: workflow_call
 
 jobs:
   test315:
-    name: Test on ${{matrix.python.version}}-${{matrix.platform.runner}} (experimental)
+    name: Test on ${{matrix.python.version}}-${{ matrix.os }} (experimental)
     continue-on-error: true
-    runs-on: ${{ matrix.platform.runner }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
