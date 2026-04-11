@@ -33,6 +33,7 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
     That way, we ensure it remains _possible_ for users to find a solution, instead of rendering it impossible forever.
 * Sphinx Documentation:
   * Sphinx conf.py: Updated year in copyright statement to 2026
+* README.md: Updated year in copyright statement to 2026
 
 
 ## [0.1.2] - 2025-12-23
