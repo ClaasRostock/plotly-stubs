@@ -35,7 +35,7 @@ class ElidedPrettyPrinter(PrettyPrinter):
 def node_generator(
     node: Any,
     path: str = ...,
-) -> Generator[tuple[dict[Any, Any], Any] | Any, Any, None]: ...
+) -> Generator[tuple[dict[Any, Any], Any] | Any, Any]: ...
 def get_by_path(
     obj: Any,
     path: str = ...,
