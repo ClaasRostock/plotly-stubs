@@ -20,7 +20,8 @@ jobs:
         run: uv build
       - name: Run twine check
         run: uvx twine check --strict dist/*
-      - uses: actions/upload-artifact@v5
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v5
         with:
           path: |
             dist/*.tar.gz
