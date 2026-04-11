@@ -19,7 +19,11 @@
             "autoReload": {
                 "enable": true
             },
+            "subProcess": true,
             "justMyCode": true,
+            "redirectOutput": true, // pipe stdout/stderr to Debug Console
+            "showReturnValue": true,
+            "logToFile": false, // set true temporarily when diagnosing debugger issues
         },
         {
             "name": "Python: Current File, cwd = file dir",
@@ -28,10 +32,14 @@
             "cwd": "${fileDirname}", // working dir = dir where current file is
             "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": true,
             "autoReload": {
                 "enable": true
             },
+            "subProcess": true,
+            "justMyCode": true,
+            "redirectOutput": true,
+            "showReturnValue": true,
+            "logToFile": false,
         },
         {
             "name": "Python: Current File, cwd = workspace root folder",
@@ -43,7 +51,11 @@
             "autoReload": {
                 "enable": true
             },
+            "subProcess": true,
             "justMyCode": true,
+            "redirectOutput": true,
+            "showReturnValue": true,
+            "logToFile": false,
         },
     ]
 }

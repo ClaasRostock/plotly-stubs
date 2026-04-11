@@ -98,12 +98,20 @@ raises-require-match-for = [
     "I001",    # Import block is un-sorted or un-formatted
     "PLC0414", # Import alias does not rename original package
 ]
-# `__init__.pyi` specific ignores
-"__init__.pyi" = [
-    "F401",    # {name} imported but unused (NOTE: ignored as imports in `__init__.pyi` files are almost never used inside the module, but are intended for namespaces)
-    "PLC0414", # Import alias does not rename original package
-    "TID252",  # Prefer absolute imports over relative imports from parent modules
-    "PLR0402", # Use `from package import module` in lieu of alias `import package.module as module`
+# `tests` specific ignores
+"tests/**/*" = [
+    "D",       # Missing docstrings
+    "ERA001",  # Found commented-out code
+    "PT006",   # Wrong type passed to first argument of `@pytest.mark.parametrize` (NOTE: ignored to allow parameters args as "args_1,arg_2,arg_3,..."
+    "S101",    # Use of assert detected
+    "PLR2004", # Magic value used in comparison
+    "ANN201",  # Missing return type annotation for public function
+    "ANN202",  # Missing return type annotation for private function
+    "ARG001",  # Unused function argument: {name}
+    "ARG002",  # Unused method argument: {name}
+    "INP001",  # File is part of an implicit namespace package. Add an `__init__.py`. (NOTE: tests are not intended to be a module, __init__.py hence not required.)
+    "SLF001",  # Private member accessed
+    "TRY004",  # Prefer `TypeError` exception for invalid type
 ]
 # `*.pyi` specific ignores
 "**/*.pyi" = [
@@ -122,21 +130,6 @@ raises-require-match-for = [
     "PYI002",  # complex if statement in stub
     "PLR0913", # Too many arguments in function definition
     "PLR0402", # Use `from package import module` in lieu of alias `import package.module as module` - Necessary as partly we need to write imports as e.g. `import plotly.graph_objs.waterfall as waterfall`
-]
-# `tests` specific ignores
-"tests/**/*" = [
-    "D",       # Missing docstrings
-    "ERA001",  # Found commented-out code
-    "PT006",   # Wrong type passed to first argument of `@pytest.mark.parametrize` (NOTE: ignored to allow parameters args as "args_1,arg_2,arg_3,..."
-    "S101",    # Use of assert detected
-    "PLR2004", # Magic value used in comparison
-    "ANN201",  # Missing return type annotation for public function
-    "ANN202",  # Missing return type annotation for private function
-    "ARG001",  # Unused function argument: {name}
-    "ARG002",  # Unused method argument: {name}
-    "INP001",  # File is part of an implicit namespace package. Add an `__init__.py`. (NOTE: tests are not intended to be a module, __init__.py hence not required.)
-    "SLF001",  # Private member accessed
-    "TRY004",  # Prefer `TypeError` exception for invalid type
 ]
 # Jupyter notebook specific ignores
 "**/*.ipynb" = [
@@ -164,10 +157,21 @@ raises-require-match-for = [
     "A001",   # Variable {name} is shadowing a Python builtin
     "D100",   # Missing docstring in public module
 ]
-
+# types.py specific ignores
+"**/types.py" = [
+    "A005", # Module `types` shadows a Python standard-library module
+]
+# `__init__.pyi` specific ignores
+"__init__.pyi" = [
+    "F401",    # {name} imported but unused (NOTE: ignored as imports in `__init__.pyi` files are almost never used inside the module, but are intended for namespaces)
+    "PLC0414", # Import alias does not rename original package
+    "TID252",  # Prefer absolute imports over relative imports from parent modules
+    "PLR0402", # Use `from package import module` in lieu of alias `import package.module as module`
+]
 
 [lint.pydocstyle]
 convention = "numpy"
 
 [format]
 docstring-code-format = true
+# preview = true  # uncomment to enable preview features of Ruff formatter (https://docs.astral.sh/ruff/formatter/#preview-features)
