@@ -352,6 +352,7 @@ class Heatmap(_BaseTraceType):
         hovertext: str
         | float
         | Sequence[str]
+        | Sequence[Sequence[str]]
         | Sequence[float]
         | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
         | None = ...,
@@ -386,6 +387,7 @@ class Heatmap(_BaseTraceType):
         visible: bool | str | None = ...,
         x: Sequence[int]
         | Sequence[float]
+        | Sequence[str]
         | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
         | pd.Series[float]
         | None = ...,
@@ -401,6 +403,7 @@ class Heatmap(_BaseTraceType):
         xtype: str | None = ...,
         y: Sequence[int]
         | Sequence[float]
+        | Sequence[str]
         | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
         | pd.Series[float]
         | None = ...,
