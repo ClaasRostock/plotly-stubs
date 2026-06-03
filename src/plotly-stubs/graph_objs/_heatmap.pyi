@@ -1,6 +1,6 @@
 # pyright: reportPropertyTypeMismatch=false
 from collections.abc import Hashable, Sequence
-from typing import Any
+from typing import Any, TypeAlias
 
 import numpy as np
 import pandas as pd
@@ -12,6 +12,9 @@ from plotly.graph_objs.heatmap import (
     Stream,
     Textfont,
 )
+
+_AxisValueType: TypeAlias = int | float | str
+_HoverTextType: TypeAlias = _AxisValueType | Sequence[_AxisValueType] | Sequence[Sequence[_AxisValueType]]
 
 class Heatmap(_BaseTraceType):
     _parent_path_str = ...
@@ -82,11 +85,9 @@ class Heatmap(_BaseTraceType):
     @hovertemplatesrc.setter
     def hovertemplatesrc(self, val: str | None) -> None: ...
     @property
-    def hovertext(self) -> str | Sequence[str] | None: ...
+    def hovertext(self) -> _HoverTextType | None: ...
     @hovertext.setter
-    def hovertext(
-        self, val: str | float | Sequence[str] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
-    ) -> None: ...
+    def hovertext(self, val: _HoverTextType | np.ndarray[tuple[int, ...], np.dtype[np.float64]]) -> None: ...
     @property
     def hovertextsrc(self) -> str | None: ...
     @hovertextsrc.setter
@@ -349,12 +350,7 @@ class Heatmap(_BaseTraceType):
         | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
         | None = ...,
         hovertemplatesrc: str | None = ...,
-        hovertext: str
-        | float
-        | Sequence[str]
-        | Sequence[float]
-        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
-        | None = ...,
+        hovertext: _HoverTextType | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | None = ...,
         hovertextsrc: str | None = ...,
         ids: Sequence[str] | np.ndarray[tuple[int, ...], np.dtype[np.str_]] | pd.Series[str] | None = ...,
         idssrc: str | None = ...,
@@ -384,11 +380,7 @@ class Heatmap(_BaseTraceType):
         uid: str | int | None = ...,
         uirevision: Hashable | None = ...,
         visible: bool | str | None = ...,
-        x: Sequence[int]
-        | Sequence[float]
-        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
-        | pd.Series[float]
-        | None = ...,
+        x: _AxisValueType | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
         x0: int | float | None = ...,
         xaxis: str | None = ...,
         xcalendar: str | None = ...,
@@ -399,11 +391,7 @@ class Heatmap(_BaseTraceType):
         xperiodalignment: str | None = ...,
         xsrc: str | None = ...,
         xtype: str | None = ...,
-        y: Sequence[int]
-        | Sequence[float]
-        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
-        | pd.Series[float]
-        | None = ...,
+        y: _AxisValueType | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
         y0: int | float | None = ...,
         yaxis: str | None = ...,
         ycalendar: str | None = ...,
