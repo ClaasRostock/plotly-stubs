@@ -3,7 +3,7 @@ from collections import OrderedDict
 from collections.abc import Callable, Generator, Iterator, Sequence
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any
+from typing import IO, Any
 
 from plotly._subplots import SubplotDomain, SubplotXY
 from plotly.callbacks import BoxSelector, InputDeviceState, LassoSelector, Points
@@ -174,7 +174,7 @@ class BaseFigure:
     ) -> Figure: ...
     def write_json(
         self,
-        file: Path | os.PathLike[str],
+        file: IO[str] | os.PathLike[str],
         pretty: bool = ...,
         remove_uids: bool = ...,
         engine: str | None = ...,
