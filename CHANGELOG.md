@@ -8,6 +8,14 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * -/-
 
 
+## [0.1.4] - 2026-08-24
+
+### Changed
+* Annotate the `file` parameter of `write_json` with `IO[str]` by @ziyuang in https://github.com/ClaasRostock/plotly-stubs/pull/16
+* Allow x and y to accept `Sequence[str]`, and hovertext to accept `Sequence[Sequence[str]]` by @ziyuang in https://github.com/ClaasRostock/plotly-stubs/pull/17
+* Use `Mapping` rather than `dict` in `MapIdentity` by @mthuurne in https://github.com/ClaasRostock/plotly-stubs/pull/19
+
+
 ## [0.1.3] - 2026-04-11
 
 ### Changed
@@ -174,7 +182,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 * Beta release 0.0.1
 
 <!-- Markdown link & img dfn's -->
-[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.3...HEAD
+[unreleased]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/ClaasRostock/plotly-stubs/compare/v0.1.0...v0.1.1
