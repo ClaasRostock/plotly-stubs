@@ -40,7 +40,6 @@ __all__ = [
     "cmocean",
     "color_parser",
     "colorbrewer",
-    "colorbrewer",
     "colorscale_to_colors",
     "colorscale_to_scale",
     "convert_colors_to_same_type",
