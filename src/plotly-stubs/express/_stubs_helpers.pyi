@@ -1,4 +1,4 @@
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from typing import Any, Literal, Protocol, TypeAlias, TypedDict
 
 import pandas as pd
@@ -19,8 +19,8 @@ ColumnData: TypeAlias = str | int | ArrayLike
 MultiColumnData: TypeAlias = ColumnData | list[ColumnData]
 HoverData: TypeAlias = ColumnData | list[str] | dict[str, bool | str | ArrayLike]
 MapIdentity: TypeAlias = (
-    dict[str | int, str] | Literal["identity"]
-)  # Would rather use dict[str, str] | dict[int, str], but is currently technically correct for pandas.
+    Mapping[str | int, str] | Literal["identity"]
+)  # Would rather use Mapping[str, str] | Mapping[int, str], but is currently technically correct for pandas.
 
 RenderMode: TypeAlias = Literal["auto", "webgl", "svg"]
 TrendLineScope: TypeAlias = Literal["trace", "overall"]
