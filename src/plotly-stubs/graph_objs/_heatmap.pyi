@@ -189,7 +189,7 @@ class Heatmap(_BaseTraceType):
     @property
     def x(
         self,
-    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any]: ...
+    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None: ...
     @x.setter
     def x(
         self,
@@ -238,7 +238,7 @@ class Heatmap(_BaseTraceType):
     @property
     def y(
         self,
-    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any]: ...
+    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None: ...
     @y.setter
     def y(
         self,
@@ -287,11 +287,20 @@ class Heatmap(_BaseTraceType):
     @property
     def z(
         self,
-    ) -> Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]: ...
+    ) -> (
+        Sequence[_AxisValueType]
+        | Sequence[Sequence[_AxisValueType]]
+        | np.ndarray[tuple[int, ...], np.dtype[Any]]
+        | pd.Series[Any]
+        | None
+    ): ...
     @z.setter
     def z(
         self,
-        val: Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float],
+        val: Sequence[_AxisValueType]
+        | Sequence[Sequence[_AxisValueType]]
+        | np.ndarray[tuple[int, ...], np.dtype[Any]]
+        | pd.Series[Any],
     ) -> None: ...
     @property
     def zauto(self) -> bool | None: ...
@@ -402,10 +411,10 @@ class Heatmap(_BaseTraceType):
         yperiodalignment: str | None = ...,
         ysrc: str | None = ...,
         ytype: str | None = ...,
-        z: Sequence[int]
-        | Sequence[float]
-        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
-        | pd.Series[float]
+        z: Sequence[_AxisValueType]
+        | Sequence[Sequence[_AxisValueType]]
+        | np.ndarray[tuple[int, ...], np.dtype[Any]]
+        | pd.Series[Any]
         | None = ...,
         zauto: bool | None = ...,
         zhoverformat: str | None = ...,
