@@ -1963,7 +1963,7 @@ dev = [
     { name = "nbconvert", specifier = ">=7.17" },
     { name = "numpy", specifier = ">=2.4" },
     { name = "pandas-stubs", specifier = ">=3.0" },
-    { name = "plotly", specifier = ">=6.6" },
+    { name = "plotly", specifier = ">=6.6,<7" },
     { name = "polars", specifier = ">=1.39.3" },
     { name = "pre-commit", specifier = ">=4.5" },
     { name = "pyright", specifier = ">=1.1.408" },

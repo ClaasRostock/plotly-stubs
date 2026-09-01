@@ -189,11 +189,11 @@ class Heatmap(_BaseTraceType):
     @property
     def x(
         self,
-    ) -> Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]: ...
+    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any]: ...
     @x.setter
     def x(
         self,
-        val: Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float],
+        val: Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any],
     ) -> None: ...
     @property
     def x0(self) -> int | float | None: ...
@@ -238,11 +238,11 @@ class Heatmap(_BaseTraceType):
     @property
     def y(
         self,
-    ) -> Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]: ...
+    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any]: ...
     @y.setter
     def y(
         self,
-        val: Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float],
+        val: Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any],
     ) -> None: ...
     @property
     def y0(self) -> int | float | None: ...
@@ -287,11 +287,19 @@ class Heatmap(_BaseTraceType):
     @property
     def z(
         self,
-    ) -> Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float]: ...
+    ) -> (
+        Sequence[_AxisValueType]
+        | Sequence[Sequence[_AxisValueType]]
+        | np.ndarray[tuple[int, ...], np.dtype[Any]]
+        | pd.Series[Any]
+    ): ...
     @z.setter
     def z(
         self,
-        val: Sequence[int] | Sequence[float] | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float],
+        val: Sequence[_AxisValueType]
+        | Sequence[Sequence[_AxisValueType]]
+        | np.ndarray[tuple[int, ...], np.dtype[Any]]
+        | pd.Series[Any],
     ) -> None: ...
     @property
     def zauto(self) -> bool | None: ...
@@ -380,7 +388,7 @@ class Heatmap(_BaseTraceType):
         uid: str | int | None = ...,
         uirevision: Hashable | None = ...,
         visible: bool | str | None = ...,
-        x: _AxisValueType | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
+        x: Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None = ...,
         x0: int | float | None = ...,
         xaxis: str | None = ...,
         xcalendar: str | None = ...,
@@ -391,7 +399,7 @@ class Heatmap(_BaseTraceType):
         xperiodalignment: str | None = ...,
         xsrc: str | None = ...,
         xtype: str | None = ...,
-        y: _AxisValueType | np.ndarray[tuple[int, ...], np.dtype[np.float64]] | pd.Series[float] | None = ...,
+        y: Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None = ...,
         y0: int | float | None = ...,
         yaxis: str | None = ...,
         ycalendar: str | None = ...,
@@ -402,10 +410,10 @@ class Heatmap(_BaseTraceType):
         yperiodalignment: str | None = ...,
         ysrc: str | None = ...,
         ytype: str | None = ...,
-        z: Sequence[int]
-        | Sequence[float]
-        | np.ndarray[tuple[int, ...], np.dtype[np.float64]]
-        | pd.Series[float]
+        z: Sequence[_AxisValueType]
+        | Sequence[Sequence[_AxisValueType]]
+        | np.ndarray[tuple[int, ...], np.dtype[Any]]
+        | pd.Series[Any]
         | None = ...,
         zauto: bool | None = ...,
         zhoverformat: str | None = ...,
