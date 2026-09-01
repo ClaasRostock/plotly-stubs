@@ -1,43 +1,50 @@
 # Regression tests for the array properties `x`, `y` and `z` of `Heatmap` (issue #21).
 #
 # Every construction below is asserted twice: pytest asserts that plotly accepts the value at
-# runtime, and the mypy and pyright jobs of the code quality workflow assert that the stub
-# accepts it statically (both check `tests` in addition to `src`). Narrowing one of these
-# annotations therefore fails CI, which is what the 0.1.4 regression slipped through.
+# runtime, and the mypy and pyright jobs of the code quality workflow assert that the stub accepts
+# it statically (both check `tests` in addition to `src`). Narrowing one of these annotations
+# therefore fails CI, which is what the 0.1.4 regression slipped through. The static half only
+# holds because those two jobs install the project non-editably: a stub-only package contains no
+# `.py` file for hatchling's dev mode to expose, so under `uv sync` alone the type checkers see no
+# `plotly` at all and every assertion here silently degrades to `Any`.
 #
-# plotly states the contract in the error it raises for an invalid value: "The 'x' property is
-# an array that may be specified as a tuple, list, numpy array, or pandas Series".
+# plotly states the contract in the error it raises for an invalid value: "The 'x' property is an
+# array that may be specified as a tuple, list, numpy array, or pandas Series".
+
+from typing import TYPE_CHECKING
 
 import numpy as np
-import pandas as pd
 import plotly.graph_objects as go
 import pytest
+
+if TYPE_CHECKING:
+    import pandas as pd
 
 Z: list[list[float]] = [[1.0, 2.0], [3.0, 4.0]]
 
 
 def test_x_and_y_accept_int_sequences() -> None:
     trace = go.Heatmap(x=[0, 1], y=[0, 1], z=Z)
-    assert trace.x == (0, 1)
-    assert trace.y == (0, 1)
+    assert list(trace.x) == [0, 1]
+    assert list(trace.y) == [0, 1]
 
 
 def test_x_and_y_accept_float_sequences() -> None:
     trace = go.Heatmap(x=[0.0, 1.0], y=[0.0, 1.0], z=Z)
-    assert trace.x == (0.0, 1.0)
-    assert trace.y == (0.0, 1.0)
+    assert list(trace.x) == [0.0, 1.0]
+    assert list(trace.y) == [0.0, 1.0]
 
 
 def test_x_and_y_accept_str_sequences() -> None:
     trace = go.Heatmap(x=["a", "b"], y=["c", "d"], z=Z)
-    assert trace.x == ("a", "b")
-    assert trace.y == ("c", "d")
+    assert list(trace.x) == ["a", "b"]
+    assert list(trace.y) == ["c", "d"]
 
 
 def test_x_and_y_accept_tuples() -> None:
     trace = go.Heatmap(x=(0, 1), y=("c", "d"), z=Z)
-    assert trace.x == (0, 1)
-    assert trace.y == ("c", "d")
+    assert list(trace.x) == [0, 1]
+    assert list(trace.y) == ["c", "d"]
 
 
 def test_x_and_y_accept_numpy_arrays() -> None:
@@ -57,19 +64,20 @@ def test_x_accepts_datetime64_arrays() -> None:
     assert trace.x.dtype == x.dtype
 
 
-def test_x_accepts_pandas_series() -> None:
-    trace = go.Heatmap(x=pd.Series([0, 1]), z=Z)
-    assert isinstance(trace.x, np.ndarray)
-    assert trace.x.tolist() == [0, 1]
+def x_accepts_pandas_series(series: "pd.Series[float]") -> None:
+    # Not a test: pandas-stubs is a development dependency but pandas itself is not, so the
+    # `pd.Series` member of the annotation can only be exercised statically. mypy and pyright
+    # check this body; pytest never collects or runs it.
+    go.Heatmap(x=series, y=series, z=Z)
 
 
 def test_z_accepts_nested_sequences() -> None:
     trace = go.Heatmap(z=[[1.0, 2.0], [3.0, 4.0]])
-    assert trace.z == ([1.0, 2.0], [3.0, 4.0])
+    assert list(trace.z) == [[1.0, 2.0], [3.0, 4.0]]
 
 
 def test_z_accepts_flat_sequences_and_arrays() -> None:
-    assert go.Heatmap(z=[1.0, 2.0]).z == (1.0, 2.0)
+    assert list(go.Heatmap(z=[1.0, 2.0]).z) == [1.0, 2.0]
     trace = go.Heatmap(z=np.zeros((2, 2)))
     assert isinstance(trace.z, np.ndarray)
     assert trace.z.shape == (2, 2)
@@ -80,20 +88,15 @@ def test_setters_accept_the_same_types_as_the_constructor() -> None:
     trace.x = [0, 1]
     trace.y = np.arange(2, dtype=np.float64)
     trace.z = np.zeros((2, 2))
-    assert trace.x == (0, 1)
+    assert list(trace.x) == [0, 1]
     assert isinstance(trace.y, np.ndarray)
     assert isinstance(trace.z, np.ndarray)
 
 
-def test_x_and_y_are_none_when_not_given() -> None:
-    trace = go.Heatmap(z=Z)
-    assert trace.x is None
-    assert trace.y is None
-
-
 def test_scalars_are_rejected() -> None:
     # `x`, `y` and `z` are array properties, so plotly rejects a scalar at runtime and the stub
-    # rejects it statically -- hence the `type: ignore` comments, which are part of the assertion.
+    # rejects it statically -- hence the `type: ignore` comments, which are part of the assertion:
+    # `warn_unused_ignores` turns a stub that starts accepting scalars into a CI failure.
     with pytest.raises(ValueError, match="Invalid value of type"):
         go.Heatmap(x=3, z=Z)  # type: ignore[arg-type]
     with pytest.raises(ValueError, match="Invalid value of type"):

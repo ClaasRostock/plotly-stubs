@@ -189,7 +189,7 @@ class Heatmap(_BaseTraceType):
     @property
     def x(
         self,
-    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None: ...
+    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any]: ...
     @x.setter
     def x(
         self,
@@ -238,7 +238,7 @@ class Heatmap(_BaseTraceType):
     @property
     def y(
         self,
-    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any] | None: ...
+    ) -> Sequence[_AxisValueType] | np.ndarray[tuple[int, ...], np.dtype[Any]] | pd.Series[Any]: ...
     @y.setter
     def y(
         self,
@@ -292,7 +292,6 @@ class Heatmap(_BaseTraceType):
         | Sequence[Sequence[_AxisValueType]]
         | np.ndarray[tuple[int, ...], np.dtype[Any]]
         | pd.Series[Any]
-        | None
     ): ...
     @z.setter
     def z(

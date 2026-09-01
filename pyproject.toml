@@ -119,10 +119,24 @@ exclude = [
     "src/folder_to_be_excluded",
 ]
 check_untyped_defs = true
+# Negative type assertions in the test suite are written as `type: ignore` comments,
+# which only assert anything if an ignore that stops being needed is reported.
+warn_unused_ignores = true
 disable_error_code = [
     "misc",
     "import-untyped",
 ]
+
+[[tool.mypy.overrides]]
+# Now that the type checkers resolve `plotly` through these stubs (see the non-editable install
+# in _code_quality.yml), the handful of runtime modules the stubs do not cover yet -- e.g.
+# `plotly.graph_objs.scatter.marker.colorbar.title._font`, which `title/__init__.pyi` imports --
+# can no longer fall back to the untyped runtime package. Drop this override once they are stubbed.
+module = [
+    "plotly.*",
+    "_plotly_utils.*",
+]
+ignore_missing_imports = true
 
 
 [tool.pyright]
