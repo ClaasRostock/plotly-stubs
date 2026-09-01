@@ -3,10 +3,9 @@
 # Every construction below is asserted twice: pytest asserts that plotly accepts the value at
 # runtime, and the mypy and pyright jobs of the code quality workflow assert that the stub accepts
 # it statically (both check `tests` in addition to `src`). Narrowing one of these annotations
-# therefore fails CI, which is what the 0.1.4 regression slipped through. The static half only
-# holds because those two jobs install the project non-editably: a stub-only package contains no
-# `.py` file for hatchling's dev mode to expose, so under `uv sync` alone the type checkers see no
-# `plotly` at all and every assertion here silently degrades to `Any`.
+# therefore fails CI, which is what the 0.1.4 regression slipped through. Both jobs include `src`
+# and `tests` directly, and mypy's `warn_unused_ignores` makes the negative assertions below fail
+# if a scalar becomes accepted again.
 #
 # plotly states the contract in the error it raises for an invalid value: "The 'x' property is an
 # array that may be specified as a tuple, list, numpy array, or pandas Series".

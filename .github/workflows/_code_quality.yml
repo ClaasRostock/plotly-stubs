@@ -47,11 +47,7 @@ jobs:
           enable-cache: true
           cache-dependency-glob: 'uv.lock'
       - name: Install the project
-        # Install non-editably: a stub-only package ships no `.py` file for hatchling's
-        # editable dev mode to expose, so `uv sync` alone leaves `plotly-stubs` invisible to
-        # the type checkers, which then fall back to treating plotly as untyped and check the
-        # annotations against nothing. A non-editable install puts them in site-packages.
-        run: uv sync -U --no-editable
+        run: uv sync -U
       - name: Run pyright
         run: uv run pyright
 
@@ -67,10 +63,6 @@ jobs:
           enable-cache: true
           cache-dependency-glob: 'uv.lock'
       - name: Install the project
-        # Install non-editably: a stub-only package ships no `.py` file for hatchling's
-        # editable dev mode to expose, so `uv sync` alone leaves `plotly-stubs` invisible to
-        # the type checkers, which then fall back to treating plotly as untyped and check the
-        # annotations against nothing. A non-editable install puts them in site-packages.
-        run: uv sync -U --no-editable
+        run: uv sync -U
       - name: Run mypy
         run: uv run mypy

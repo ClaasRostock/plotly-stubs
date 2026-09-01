@@ -91,7 +91,7 @@ dev = [
     "nbconvert>=7.17",
     "pandas-stubs>=3.0",
     "numpy>=2.4",
-    "plotly>=6.6",
+    "plotly>=6.6,<7",
     "polars>=1.39.3",
 ]
 
@@ -126,18 +126,6 @@ disable_error_code = [
     "misc",
     "import-untyped",
 ]
-
-[[tool.mypy.overrides]]
-# Now that the type checkers resolve `plotly` through these stubs (see the non-editable install
-# in _code_quality.yml), the handful of runtime modules the stubs do not cover yet -- e.g.
-# `plotly.graph_objs.scatter.marker.colorbar.title._font`, which `title/__init__.pyi` imports --
-# can no longer fall back to the untyped runtime package. Drop this override once they are stubbed.
-module = [
-    "plotly.*",
-    "_plotly_utils.*",
-]
-ignore_missing_imports = true
-
 
 [tool.pyright]
 include = [
